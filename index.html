@@ -3,27 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>Music Player</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="now-playing">
-            <div class="now-playing-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
-              </svg></div>
-            <p id="now-playing-text">Now Playing</p>
-            <div class="now-playing-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
-              </svg></div>
+    <main class="container">
+        <div class="overlay"></div>
+        <div class="content-wrapper">
+            <div class="now-playing-container">
+                <button class="hide-player-button reset-icon">
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <p id="now-playing-text">Now Playing</p>
+                <button class="options-button reset-icon">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+            </div>
+            
+            <div class="album-cover">
+                <img src="img/ayonha.jpg" id="main-cover">
+            </div>
+
+            <div id="music-info">
+                <div class="share-container">
+                    <button class="share-button reset-icon">
+                        <i class="bi bi-share"></i>
+                    </button>
+                </div>
+                <div id="song-info">
+                    <h2 class="title">Ayonha</h2>
+                    <p class="artist">Hamid El Shaeri</p>
+                </div>
+                <div class="like-container">
+                    <button class="like-button reset-icon">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="song-progress">
+                <div id="slider-song">
+                    <input id="range-song" type="range" min="0" value="0">
+                </div>
+                <div id="progress-info" class="progress">
+                    <p id="current-time">0:00</p>
+                    <p id="remaining-time">-0:00</p>
+                </div>
+                <audio src="music/ayonha-hamid.mp3" id="audio"></audio>
+            </div>
+
+            <div id="controls">
+                <div id="shuffle-container">
+                    <button class="shuffle-button reset-icon">
+                        <i class="bi bi-shuffle"></i>
+                    </button>
+                </div>
+                <div id="skip-left-container">
+                    <button class="skip-left-button reset-icon">
+                        <i class="bi bi-skip-start-fill"></i>
+                    </button>
+                </div>
+                <div class="play-container">
+                    <button id="play-pause-button" class="play-button reset-icon">
+                        <i class="bi bi-play-circle-fill"></i>
+                    </button>
+                </div>
+                <div id="skip-right-container">
+                    <button class="skip-right-button reset-icon">
+                        <i class="bi bi-skip-end-fill"></i>
+                    </button>
+                </div>
+                <div id="repeat-container">
+                    <button class="repeat-button reset-icon">
+                        <i class="bi bi-repeat"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="album-cover">
-            <img src="https://i1.sndcdn.com/artworks-yDEoyQNMB4TUApMT-lppdCA-t500x500.jpg" alt="album cover Slam Years">
-        </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
